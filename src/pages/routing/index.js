@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './home';
 import About from './about';
 import Products from './products';
+import Error from './error';
 import { BrowserRouter,Routes,Route,Link } from 'react-router-dom';
 const Indexs = () => {
     return ( 
@@ -14,9 +15,10 @@ const Indexs = () => {
                 </ul>
             </div>
             <Routes>
-            <Route  path='/' element={<Home />}/>
+            <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />}/>
             <Route path='/products' element={<Products />}/>
+            <Route path='*' element={<Error />}/>
                 
             </Routes>
         </BrowserRouter>
