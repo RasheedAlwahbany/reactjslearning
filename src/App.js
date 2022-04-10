@@ -7,9 +7,9 @@ import {Props} from './pages/props';
 function App() {
   return (
     <div className="App">
-      <Props/>
+      {/* <Props/> */}
       {/* <Forms/> */}
-      {/* <Book/> */}
+      <Book/>
       {/* <Func/> */}
     </div>
   );

@@ -1,28 +1,31 @@
 import React,{useState,useEffect} from "react";
-
+import { useFetch } from "./custom_use_hooks";
 
 export const Book = () => {
-  const [users,setUsers]=useState([]);
-  // const url="http://localhost:83/users_json_api/users.json";
-  const url="https://api.github.com/users";
-  const getUser=async()=>{
-      const response =await fetch(url);
-      const users2=await response.json();
-        setUsers(users2);
-        // alert(users2);
+  // const [users,setUsers]=useState([]);
+  // const url="https://api.github.com/users";
+  // const getUser=async()=>{
+  //     const response =await fetch(url);
+  //     const users=await response.json();
+  //       setUsers(users);
+  //       // alert(users2);
         
-  };
-  getUser();
-  useEffect=(()=>{
-    getUser();
-  },[]);
+  // };
+  // useEffect(()=>{
+  //   getUser();
+  // },[]);
+
+// or from custom use hook
+const url="https://api.github.com/users";
+const {users}=useFetch(url);
+
     return (
     <>
     <p>hello</p>
     <ul>
     {users.map((user)=>{
       // const [login, id, node_id, avatar_url, gravatar_id, url, html_url, followers_url, following_url, gists_url, starred_url, subscriptions_url, organizations_url, repos_url, events_url, received_events_url, type, site_admin] =user;
-      return <p>{user}</p>
+      return <p>{user.id}: {user.login} Type {user.type}</p>
     },[])}
     </ul>
     </>    
